@@ -1,0 +1,43 @@
+# Build related
+*.pyc
+*.egg
+*.[oa]
+pip-log.txt
+docs/.build
+docs/_build
+build/
+log/
+tmp/
+db/
+
+# Backup files
+*~.nib
+.*.swp
+*~
+*.tmp
+*.bak
+.metadata
+Thumbs.db
+Desktop.ini
+
+# Other repositories
+.hg
+.svn
+CVS
+
+# Project related
+dist/
+env/
+
+# Mac OS X Finder and whatnot
+.DS_Store
+
+# XCode (and ancestors) per-user config (very noisy, and not relevant)
+*.mode1
+*.mode1v3
+*.mode2v3
+*.perspective
+*.perspectivev3
+*.pbxuser
+
+
