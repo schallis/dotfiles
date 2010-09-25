@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# We change the volume using Applescript,
+# hence this will only work on MacOS
+
+if [ -z $1 ]; then
+    echo "Error! Please provide a volume [0-10] as the first argument."
+else
+    osascript -e "set Volume $1"
+fi
