@@ -18,8 +18,10 @@ set guioptions=a
 set mousehide
 
 " Colours
-syntax on
-colorscheme desert
+if has('syntax')
+    syntax on
+    colorscheme desert
+endif
 
 " Basics
 set tw=78
