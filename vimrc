@@ -1,3 +1,12 @@
+" .vimrc
+"
+" Steve Challis
+" stevechallis.com
+"
+" Do not use these without understading *all* of
+" the commands, they may do unexpected things!
+
+
 " Why bother limiting the feature set for compatability with vi
 set nocompatible
 
@@ -9,9 +18,6 @@ map H ^
 map L $
 cmap [ :tabp
 cmap ] :tabn
-
-" Filetype defs
-let filetype_m='objc'
 
 " Remove scrollbar/menu/tabs/etc
 set guioptions=a
@@ -56,10 +62,16 @@ set scrolloff=5
 set nobackup
 set noswapfile
 
-" Filetype options
-filetype on
-filetype plugin on
-filetype indent on
+if has('filetype')
+    " Filetype options
+    filetype on
+    filetype plugin on
+    filetype indent on
+
+    " Filetype defs
+    let filetype_m='objc'
+    let filetype_emacs='lisp'
+endif
 
 " Highlight whitespace
 set list
