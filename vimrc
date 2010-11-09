@@ -67,7 +67,8 @@ set title
 set visualbell
 set noerrorbells
 set cursorline
-set wildmode=list:longest
+set wildmenu
+set wildmode=list:longest,full
 set scrolloff=5
 
 " Turn off backup files
@@ -94,7 +95,7 @@ set listchars=tab:>.,trail:.,extends:#,nbsp:.
 nmap <silent> <leader>s :set nolist!<CR>
 
 " Emulate emacs fillprefix (requires external plugin)
-nmap <silent> <leader>fp :call SetQuotePrefixFromCursor()
+nmap <silent> <leader>fp :call SetQuotePrefixFromCursor()<CR>
 
 " Remain compatible with vim version which do not have autocmd
 if has('autocmd')
@@ -104,6 +105,8 @@ if has('autocmd')
     autocmd BufRead *html set listchars-=tab:>
     "autocmd BufRead *py set foldmethod=indent
     "autocmd FileType python     call FT_python()
+    autocmd FileType python compiler pylint
+    autocmd! BufRead,BufNewFile *.org set filetype=org
 endif
 
 " Prevent noob behaviour
@@ -128,7 +131,6 @@ cmap w!! w !sudo tee % >/dev/null
 
 " Org mode stuff
 map <Tab> za
-autocmd! BufRead,BufNewFile *.org set filetype=org
 
 au! BufRead,BufNewFile *.org
 set filetype=org
