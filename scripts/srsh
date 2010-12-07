@@ -1,0 +1,21 @@
+#!/usr/bin/perl -w
+#
+
+my $hostname = shift @ARGV;
+
+my @sshargs;
+
+if($hostname =~ /\.cl1$/) {
+            $hostname =~ s[\.cl1.*][.client1.com];
+            push @sshargs, "-o", q[ProxyCommand ssh root@client1.com
+            -p 22 -T nc %h %p]
+} elsif($hostname =~ /\.cl2$/) {
+            $hostname =~ s[\.cl2$][.client2];
+            push @sshargs, "-o", q[ProxyCommand ssh
+            root@client2 -T nc %h %p];
+            push @sshargs, "-l", "root";
+}
+
+my @cmd = ("/usr/bin/ssh", @sshargs, $hostname, @ARGV);
+
+exec(@cmd);
