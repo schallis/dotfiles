@@ -43,7 +43,7 @@ endif
 
 " Basics
 set tw=78
-set wrap
+"set wrap
 
 set autoindent
 set smartindent
@@ -76,16 +76,15 @@ set nobackup
 set noswapfile
 
 
-if has('filetype')
+"if has('filetype')
     " Filetype options
     filetype on
-    filetype plugin on
-    filetype indent on
+    filetype plugin indent on
 
     " Filetype defs
     let filetype_m='objc'
     let filetype_emacs='lisp'
-endif
+"endif
 
 " Highlight whitespace
 set list
@@ -93,6 +92,7 @@ set listchars=tab:>.,trail:.,extends:#,nbsp:.
 
 " Toggle list visibility
 nmap <silent> <leader>s :set nolist!<CR>
+vmap <silent> <leader>c :s/^/#/<CR>
 
 " Emulate emacs fillprefix (requires external plugin)
 nmap <silent> <leader>fp :call SetQuotePrefixFromCursor()<CR>
