@@ -1,0 +1,11 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =9
+let g:netrw_dirhist_1='/Users/stevechallis/Documents/repos/mongoengine/mongoengine/build'
+let g:netrw_dirhist_2='/Users/stevechallis/Documents/repos/mongoengine/mongoengine/docs'
+let g:netrw_dirhist_3='/Users/stevechallis/Documents/repos/mongoengine/mongoengine/mongoengine'
+let g:netrw_dirhist_4='/Users/stevechallis/Documents/repos/mongoengine/mongoengine/mongoengine.egg-info'
+let g:netrw_dirhist_5='/Users/stevechallis/Documents/repos/mongoengine/mongoengine/temp'
+let g:netrw_dirhist_6='/Users/stevechallis/Documents/repos/mongoengine/mongoengine/tests'
+let g:netrw_dirhist_7='/Users/stevechallis/Documents/repos/mynews/mynews/feeds/management/commands'
+let g:netrw_dirhist_8='/Users/stevechallis/Documents/repos/socialart/ipadsite/ipadapp/views'
+let g:netrw_dirhist_9='/Users/stevechallis/Documents/repos/mongoengine/tests'

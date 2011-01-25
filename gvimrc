@@ -1,1 +1,2 @@
-/Users/stevechallis/.gvimrc
+set lines=60
+set go-=T
