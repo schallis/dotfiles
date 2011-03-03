@@ -1,10 +1,7 @@
 " .vimrc
 "
 " Steve Challis
-" stevechallis.com
-"
-" Do not use these without understading *all* of
-" the commands, they may do unexpected things!
+" stevechallis.com/vimrc
 
 " Stop long messages
 set shortmess=atI
@@ -109,15 +106,15 @@ if has('autocmd')
     autocmd! BufRead,BufNewFile *.org set filetype=org
 endif
 
-" Prevent noob behaviour
-map <up> <nop>
-map <down> <nop>
-map <left> <nop>
-map <right> <nop>
-inoremap <up> <nop>
-inoremap <down> <nop>
-inoremap <left> <nop>
-inoremap <right> <nop>
+"" Prevent noob behaviour
+"map <up> <nop>
+"map <down> <nop>
+"map <left> <nop>
+"map <right> <nop>
+"inoremap <up> <nop>
+"inoremap <down> <nop>
+"inoremap <left> <nop>
+"inoremap <right> <nop>
 
 " Change long line cursor behavior
 nnoremap j gj
