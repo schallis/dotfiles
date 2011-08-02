@@ -47,6 +47,7 @@ export PYTHONPATH=/Users/stevechallis/Documents/projects/webtools/spyre/lib:/Use
 export PATH=/opt/local/bin:/opt/local/sbin:/Users/stevechallis/scripts:$PATH
 export PGDATA=$HOME/db/pg-data
 export PATH=$PATH:$HOME/eev
+export PATH=$PATH:$HOME/Documents/repos/repos/appengine-java-sdk-1.5.2/bin
 
 # Virtualenv
 #source /usr/local/bin/virtualenvwrapper.sh
