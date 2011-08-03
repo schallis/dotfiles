@@ -1,6 +1,7 @@
 echo "BASH PROFILE"
 
 PS1="$USER:\W$ "
+export REPOS="$HOME/Documents/repos"
 
 alias edw="(/Applications/Emacs.app/Contents/MacOS/Emacs --daemon &)"
 alias ec='emacsclient -t $* > /dev/null &'
@@ -115,7 +116,7 @@ alias linecount='grep -v ".svn" `find . -iname "*.py"` | wc -l'
 
 export PATH="/Applications/NetBeans/NetBeans 6.9.1.app/Contents//Resources/NetBeans/java/ant/bin/ant":$PATH
 
-export PATH="~/.lein/bin/:/usr/local/bin:/usr/local/sbin":$PATH
+export PATH="~/.lein/bin/:/usr/local/bin:/usr/local/sbin:$REPOS/leiningen/bin":$PATH
 
 parents(){ :(){                                                                                                                       
           read p n <<<`ps -o ppid,comm -p $1 | awk 'NR>1{print $1,$2}'`;
