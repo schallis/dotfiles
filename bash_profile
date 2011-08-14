@@ -1,6 +1,26 @@
 echo "BASH PROFILE"
 
+# Terminal color codes
+export BOLD="\033[1m"
+export GRAY="\033[1;30m"
+export CYAN="\033[0;36m"
+export GREEN="\033[0;32m"
+export BROWN="\033[0;33m"
+export RED="\033[0;31m"
+export PURPLE="\033[0;35m"
+export BLUE="\033[0;34m"
+export YELLOW="\033[1;33m"
+export NO_COLOUR="\033[0m"
+
 PS1="$USER:\W$ "
+
+rl() {
+    # Reload the profile
+    source ~/.bash_profile
+}
+
+export ORG="$HOME/org/"
+export PHONE_LIST="$ORG/phone-list.org"
 export REPOS="$HOME/Documents/repos"
 
 alias edw="(/Applications/Emacs.app/Contents/MacOS/Emacs --daemon &)"
@@ -9,31 +29,31 @@ ecw() {
     (emacsclient -c $* &)
 }
 
+# emacs Binary
+em() { /Applications/Emacs.app/Contents/MacOS/Emacs $1 & }
 
 # Tab complete any previously used ssh servers
 complete -W "$(echo `cat ~/.ssh/known_hosts | cut -f 1 -d ' ' | sed -e s/,.*//g | uniq | grep -v "\["`;)" ssh scp
 
-# emacs Binary
-em() { /Applications/Emacs.app/Contents/MacOS/Emacs $1 & }
-
 vimtris() { netris -k "hjl k" ; }
-
-rl() {
-    # Reload the profile
-    source ~/.bash_profile
-}
 
 # Quick lookup for telephone extensions
 tel() {
-    list=~/Dropbox/sirius/phone-extensions.txt
+    local NUMBER=$CYAN
+    local TEXT=$GREEN
     if [ ! $1 ]
     then
         # Show all if no argument specified
-        cat $list | less
+        cat $PHONE_LIST | less
     else
         # Use agrep if available
         type -p agrep &>/dev/null && grepper="agrep -1" || grepper="grep"
-        echo "$grepper -i $* $list" | bash -;
+        echo -en "$TEXT"
+        echo -e "$grepper -i $* $PHONE_LIST |
+            egrep '^[^\*].*' |
+            sed 's/\([0-9]\{2,11\}x\{0,4\}\)/$NUMBER\1$TEXT/g'" |
+            bash -
+        echo -en "$NO_COLOUR"
     fi
 }
 
@@ -48,7 +68,7 @@ export PYTHONPATH=/Users/stevechallis/Documents/projects/webtools/spyre/lib:/Use
 export PATH=/opt/local/bin:/opt/local/sbin:/Users/stevechallis/scripts:$PATH
 export PGDATA=$HOME/db/pg-data
 export PATH=$PATH:$HOME/eev
-export PATH=$PATH:$HOME/Documents/repos/repos/appengine-java-sdk-1.5.2/bin
+export PATH=$PATH:$HOME/Documents/repos/appengine-java-sdk-1.5.2/bin
 
 # Virtualenv
 #source /usr/local/bin/virtualenvwrapper.sh
@@ -76,11 +96,12 @@ alias gvim='mvim'
 alias gv='mvim'
 
 # Current aliases
+alias org='cd $ORG'
 alias apod='cd /Users/stevechallis/Pictures/Wallpapers/apod'
 alias arcon='pushd /usr/share/projects/arcon/src'
 alias jxplorer='cd /Applications/jxplorer/; ./jxplorer.sh; cd -'
 alias dropbox='cd ~/Dropbox'
-alias sirius='cd ~/Documents/sirius'
+alias sirius='cd ~/Dropbox/sirius'
 alias cv='cd ~/Dropbox/documents/cv'
 alias fyp='cd ~/Dropbox/FYP'
 alias cms='cd ~/Documents/projects/webtools/spyrecms/'
