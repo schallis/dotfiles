@@ -19,9 +19,11 @@ rl() {
     source ~/.bash_profile
 }
 
+export WORDS="/usr/share/dict/words"
 export ORG="$HOME/org/"
 export PHONE_LIST="$ORG/phone-list.org"
 export REPOS="$HOME/Documents/repos"
+export APPENGINE_HOME="$REPOS/appengine-java-sdk-1.5.2"
 
 alias edw="(/Applications/Emacs.app/Contents/MacOS/Emacs --daemon &)"
 alias ec='emacsclient -t $* > /dev/null &'
