@@ -68,16 +68,15 @@ halp() {
 }
 
 # Paths
-export INFOPATH=/Users/stevechallis/.emacs.d/el-get/org-mode/doc:/Applications/Emacs.app/Contents/Resources/info:/usr/local/share/info/:/usr/local/info/:/usr/local/gnu/info/:/usr/local/gnu/lib/info/:/usr/local/gnu/lib/emacs/info/:/usr/local/emacs/info/:/usr/local/lib/info/:/usr/local/lib/emacs/info/:/usr/share/info/:/usr/lib/info/
-export PYTHONPATH=/Users/stevechallis/Documents/projects/webtools/spyre/lib:/Users/stevechallis/Documents/projects/webtools/spyrecms/lib:/Users/stevechallis/Documents/projects/pySight/lib:/Users/stevechallis/Documents/repos/mongoengine:${PYTHONPATH}
-export PATH=/opt/local/bin:/opt/local/sbin:/Users/stevechallis/scripts:$PATH
-export PGDATA=$HOME/db/pg-data
-export PATH=$PATH:$HOME/eev
+export INFOPATH=$HOME/.emacs.d/el-get/org-mode/doc:/Applications/Emacs.app/Contents/Resources/info:/usr/local/share/info/:/usr/local/info/:/usr/local/gnu/info/:/usr/local/gnu/lib/info/:/usr/local/gnu/lib/emacs/info/:/usr/local/emacs/info/:/usr/local/lib/info/:/usr/local/lib/emacs/info/:/usr/share/info/:/usr/lib/info/
+export PATH=/opt/local/bin:/opt/local/sbin:$HOME/scripts:$PATH:$HOME/eev
 export PATH=$PATH:$HOME/Documents/repos/appengine-java-sdk-1.5.2/bin
+export PGDATA=$HOME/db/pg-data
+export PYTHONPATH=$HOME/Documents/repos/mongoengine:${PYTHONPATH}
 
 # Virtualenv
 #source /usr/local/bin/virtualenvwrapper.sh
-export WORKON_HOME=/Users/stevechallis/envs
+export WORKON_HOME=$HOME/envs
 export PIP_VIRTUALENV_BASE=$WORKON_HOME
 
 # Override standard commands
@@ -102,7 +101,7 @@ alias gv='mvim'
 
 # Current aliases
 alias org='cd $ORG'
-alias apod='cd /Users/stevechallis/Pictures/Wallpapers/apod'
+alias apod="cd $HOME/Pictures/Wallpapers/apod"
 alias arcon='pushd /usr/share/projects/arcon/src'
 alias jxplorer='cd /Applications/jxplorer/; ./jxplorer.sh; cd -'
 alias dropbox='cd ~/Dropbox'
@@ -115,17 +114,17 @@ alias sqlite='sqlite3'
 alias spyre='cd ~/Documents/projects/webtools/spyre'
 alias spyrecms='cd ~/Documents/projects/webtools/spyrecms'
 alias webtools='cd ~/Documents/projects/webtools'
-alias documents='cd /Users/stevechallis/Documents'
-alias movies='cd /Users/stevechallis/Movies'
-alias pictures='cd /Users/stevechallis/Pictures'
-alias music='cd /Users/stevechallis/Music'
-alias library='cd /Users/stevechallis/Library'
-alias downloads='cd /Users/stevechallis/Downloads'
-alias desktop='cd /Users/stevechallis/Desktop'
-alias projects='cd /Users/stevechallis/Documents/projects'
-alias uni='cd /Users/stevechallis/Documents/uni'
+alias documents='cd $HOME/Documents'
+alias movies='cd $HOME/Movies'
+alias pictures='cd $HOME/Pictures'
+alias music='cd $HOME/Music'
+alias library='cd $HOME/Library'
+alias downloads='cd $HOME/Downloads'
+alias desktop='cd $HOME/Desktop'
+alias projects='cd $HOME/Documents/projects'
+alias uni='cd $HOME/Documents/uni'
 alias sql='mysql -u root -p'
-alias traction='cd /Users/stevechallis/Documents/tractiondigital'
+alias traction='cd $HOME/Documents/tractiondigital'
 
 alias finder='open -a finder .'
 alias webserver='cd /Library/Webserver/Documents'
