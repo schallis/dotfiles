@@ -20,10 +20,13 @@ rl() {
 }
 
 export WORDS="/usr/share/dict/words"
-export ORG="$HOME/org/"
+export ORG="$HOME/org"
 export PHONE_LIST="$ORG/phone-list.org"
 export REPOS="$HOME/Documents/repos"
 export APPENGINE_HOME="$REPOS/appengine-java-sdk-1.5.2"
+export BOOKS="$ORG/books"
+export HOWTO="$ORG/how-to"
+export DOC="$ORG/doc"
 
 alias edw="(/Applications/Emacs.app/Contents/MacOS/Emacs --daemon &)"
 alias ec='emacsclient -t $* > /dev/null &'
@@ -141,7 +144,7 @@ export PATH="/Applications/NetBeans/NetBeans 6.9.1.app/Contents//Resources/NetBe
 
 export PATH="~/.lein/bin/:/usr/local/bin:/usr/local/sbin:$REPOS/leiningen/bin":$PATH
 
-parents(){ :(){                                                                                                                       
+parents(){ :(){
           read p n <<<`ps -o ppid,comm -p $1 | awk 'NR>1{print $1,$2}'`;
           echo -e "$1\t$n";
           test $1 -ne 0 && : $p; };
