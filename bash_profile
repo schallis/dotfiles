@@ -12,7 +12,10 @@ export BLUE="\033[0;34m"
 export YELLOW="\033[1;33m"
 export NO_COLOUR="\033[0m"
 
-PS1="$USER:\W$ "
+source /usr/local/git/contrib/completion/git-completion.bash
+
+#PS1="$USER:\W$ "
+PS1='$(__git_ps1 "($GREEN%s$NO_COLOUR)")\h:\W\$ '
 
 rl() {
     # Reload the profile
