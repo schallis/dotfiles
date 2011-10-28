@@ -102,7 +102,7 @@ if has('autocmd')
     autocmd BufRead *html set listchars-=tab:>
     "autocmd BufRead *py set foldmethod=indent
     "autocmd FileType python     call FT_python()
-    autocmd FileType python compiler pylint
+    "autocmd FileType python compiler pylint
     autocmd! BufRead,BufNewFile *.org set filetype=org
 endif
 

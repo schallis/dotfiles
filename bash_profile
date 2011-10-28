@@ -78,7 +78,7 @@ export PGDATA=$HOME/db/pg-data
 export PYTHONPATH=$HOME/Documents/repos/mongoengine:${PYTHONPATH}
 
 # Virtualenv
-#source /usr/local/bin/virtualenvwrapper.sh
+source /usr/local/bin/virtualenvwrapper.sh
 export WORKON_HOME=$HOME/envs
 export PIP_VIRTUALENV_BASE=$WORKON_HOME
 
@@ -148,6 +148,8 @@ alias linecount='grep -v ".svn" `find . -iname "*.py"` | wc -l'
 export PATH="/Applications/NetBeans/NetBeans 6.9.1.app/Contents//Resources/NetBeans/java/ant/bin/ant":$PATH
 
 export PATH="~/.lein/bin/:/usr/local/bin:/usr/local/sbin:$REPOS/leiningen/bin":$PATH
+
+export PATH=$PATH:/usr/local/homebrew/bin
 
 parents(){ :(){
           read p n <<<`ps -o ppid,comm -p $1 | awk 'NR>1{print $1,$2}'`;
