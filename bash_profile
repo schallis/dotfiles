@@ -75,7 +75,7 @@ export INFOPATH=$HOME/.emacs.d/el-get/org-mode/doc:/Applications/Emacs.app/Conte
 export PATH=/opt/local/bin:/opt/local/sbin:$HOME/scripts:$PATH:$HOME/eev
 export PATH=$PATH:$HOME/Documents/repos/appengine-java-sdk-1.5.2/bin
 export PGDATA=$HOME/db/pg-data
-export PYTHONPATH=$HOME/Documents/repos/mongoengine:${PYTHONPATH}
+export PYTHONPATH=$HOME/Documents/repos/mongoengine:$REPOS/zonza/:${PYTHONPATH}
 
 # Virtualenv
 source /usr/local/bin/virtualenvwrapper.sh
@@ -149,7 +149,7 @@ export PATH="/Applications/NetBeans/NetBeans 6.9.1.app/Contents//Resources/NetBe
 
 export PATH="~/.lein/bin/:/usr/local/bin:/usr/local/sbin:$REPOS/leiningen/bin":$PATH
 
-export PATH=$PATH:/usr/local/homebrew/bin
+export PATH=$PATH:/usr/local/homebrew/bin:/usr/local/homebrew/sbin:/usr/local/pgsql/bin/
 
 parents(){ :(){
           read p n <<<`ps -o ppid,comm -p $1 | awk 'NR>1{print $1,$2}'`;
@@ -157,3 +157,6 @@ parents(){ :(){
           test $1 -ne 0 && : $p; };
       : $1; }
 
+
+#export NODE_PATH=/usr/local/homebrew/lib/node_modules
+#PATH=/usr/local/homebrew/lib/node_modules/npm/node_modules/less/bin:$PATH
