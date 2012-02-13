@@ -39,7 +39,7 @@ if has('syntax')
 endif
 
 " Basics
-set tw=78
+set tw=98
 "set wrap
 
 set autoindent
@@ -96,6 +96,8 @@ nmap <silent> <leader>fp :call SetQuotePrefixFromCursor()<CR>
 
 " Remain compatible with vim version which do not have autocmd
 if has('autocmd')
+    autocmd BufRead *json set nowrap
+    autocmd BufRead *json set tw=0
     autocmd BufRead *html set nowrap
     autocmd BufRead *html set tw=0
     autocmd BufRead *html set noautoindent

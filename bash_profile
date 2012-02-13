@@ -75,7 +75,7 @@ export INFOPATH=$HOME/.emacs.d/el-get/org-mode/doc:/Applications/Emacs.app/Conte
 export PATH=/opt/local/bin:/opt/local/sbin:$HOME/scripts:$PATH:$HOME/eev
 export PATH=$PATH:$HOME/Documents/repos/appengine-java-sdk-1.5.2/bin
 export PGDATA=$HOME/db/pg-data
-export PYTHONPATH=$HOME/Documents/repos/mongoengine:$REPOS/zonza/:${PYTHONPATH}
+PYTHONPATH=$HOME/Documents/repos/mongoengine:$REPOS/zonza/:${PYTHONPATH}
 
 # Virtualenv
 source /usr/local/bin/virtualenvwrapper.sh
@@ -88,7 +88,9 @@ alias curl='curl -O'
 alias du='du -kh'
 alias ls='ls -hFGC'
 alias ll='ls -l'
-alias grep='GREP_COLOR="1;37;41" LANG=C grep --color=auto'
+if [ $TERM != "eterm-color" ]; then
+    alias grep='GREP_COLOR="2;37;41" LANG=C grep --color=auto';
+fi
 alias stat='stat -x'
 
 alias p='pushd'
@@ -129,8 +131,11 @@ alias uni='cd $HOME/Documents/uni'
 alias sql='mysql -u root -p'
 alias traction='cd $HOME/Documents/tractiondigital'
 alias portal='cd $REPOS/zonza/portal'
+alias fido='cd $REPOS/fido_platform'
 alias zonza='cd $REPOS/zonza'
 alias g='git'
+alias gpr='git pull --rebase'
+alias gsu='git submodule update'
 
 alias finder='open -a finder .'
 alias webserver='cd /Library/Webserver/Documents'
@@ -160,3 +165,5 @@ parents(){ :(){
 
 #export NODE_PATH=/usr/local/homebrew/lib/node_modules
 #PATH=/usr/local/homebrew/lib/node_modules/npm/node_modules/less/bin:$PATH
+
+alias gvim='/Applications/MacVim.app/Contents/MacOS/Vim -g'
