@@ -1,11 +1,10 @@
 echo "BASH PROFILE"
-
 # Terminal color codes
 export BOLD="\033[1m"
 export GRAY="\033[1;30m"
 export CYAN="\033[0;36m"
 export GREEN="\033[0;32m"
-export BROWN="\033[0;33m"
+export BROWN="\033[0;33m"C
 export RED="\033[0;31m"
 export PURPLE="\033[0;35m"
 export BLUE="\033[0;34m"
@@ -20,6 +19,12 @@ PS1='$(__git_ps1 "($GREEN%s$NO_COLOUR)")\h:\W\$ '
 rl() {
     # Reload the profile
     source ~/.bash_profile
+}
+
+pythonpathadd() {
+    if [ -d "$1" ] && [[ ! $PYTHONPATH =~ (^|:)$1(:|$) ]]; then
+        PYTHONPATH=$1:$PYTHONPATH
+    fi
 }
 
 export WORDS="/usr/share/dict/words"
@@ -75,12 +80,19 @@ export INFOPATH=$HOME/.emacs.d/el-get/org-mode/doc:/Applications/Emacs.app/Conte
 export PATH=/opt/local/bin:/opt/local/sbin:$HOME/scripts:$PATH:$HOME/eev
 export PATH=$PATH:$HOME/Documents/repos/appengine-java-sdk-1.5.2/bin
 export PGDATA=$HOME/db/pg-data
-PYTHONPATH=$HOME/Documents/repos/mongoengine:$REPOS/zonza/:${PYTHONPATH}
+#PYTHONPATH="$(printf "%s:" $REPOS/*)"
+#export PYTHONPATH="${PYTHONPATH%:}"
+#export PYTHONPATH=.:$PYTHONPATH:$REPOS/fido_platform/fido/
+
+# These should be in the postactivate hook for virtualenv
+#export PYTHONPATH=.:$REPOS/zonza/portal/:$REPOS/zonza/:$PYTHONPATH
+#export PYTHONPATH=.:$REPOS/fido_platform/fido/:$REPOS/fido_platform/:$PYTHONPATH
 
 # Virtualenv
 source /usr/local/bin/virtualenvwrapper.sh
 export WORKON_HOME=$HOME/envs
 export PIP_VIRTUALENV_BASE=$WORKON_HOME
+export VIRTUALENVWRAPPER_PYTHON='/Users/stevenchallis/envs/zonza/bin/python'
 
 # Override standard commands
 alias mkdir='mkdir -p'
@@ -102,6 +114,8 @@ alias vf='cd'
 alias co='cp'
 alias ci='vi'
 alias gvim='mvim'
+alias bim='vim'
+alias cim='vim'
 alias gv='mvim'
 
 # Current aliases
@@ -163,7 +177,29 @@ parents(){ :(){
       : $1; }
 
 
+move_emails() {
+    for f in `ls`; do
+        echo $f | sed 's/\.log/\.eml/' | echo mv $f `awk "{print $1}"` | bash -;
+    done;
+}
+
 #export NODE_PATH=/usr/local/homebrew/lib/node_modules
 #PATH=/usr/local/homebrew/lib/node_modules/npm/node_modules/less/bin:$PATH
 
 alias gvim='/Applications/MacVim.app/Contents/MacOS/Vim -g'
+
+function check_keys() {
+    # Check for my key
+    ssh-add -l | grep ssh/steve>/dev/null
+    if [ $? -gt 0 ]
+    then
+        echo -en $RED
+        echo "You should add your key to the keychain"
+        echo -en $NO_COLOUR
+    else
+        echo "Keys all good!"
+    fi
+}
+check_keys
+
+export PIP_DOWNLOAD_CACHE=$HOME/.pip-cache
