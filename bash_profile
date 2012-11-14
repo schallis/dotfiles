@@ -88,6 +88,8 @@ export PGDATA=$HOME/db/pg-data
 #export PYTHONPATH=.:$REPOS/zonza/portal/:$REPOS/zonza/:$PYTHONPATH
 #export PYTHONPATH=.:$REPOS/fido_platform/fido/:$REPOS/fido_platform/:$PYTHONPATH
 
+DJANGO_SETTINGS_MODULE=portal.settings.local
+
 # Virtualenv
 source /usr/local/bin/virtualenvwrapper.sh
 export WORKON_HOME=$HOME/envs
@@ -103,6 +105,7 @@ alias ll='ls -l'
 if [ $TERM != "eterm-color" ]; then
     alias grep='GREP_COLOR="2;37;41" LANG=C grep --color=auto';
 fi
+alias grep='grep -n'
 alias stat='stat -x'
 
 alias p='pushd'
@@ -178,7 +181,7 @@ parents(){ :(){
 
 
 move_emails() {
-    for f in `ls`; do
+    for f in `find . -type f -name "*.log" -d 1`; do
         echo $f | sed 's/\.log/\.eml/' | echo mv $f `awk "{print $1}"` | bash -;
     done;
 }
@@ -203,3 +206,6 @@ function check_keys() {
 check_keys
 
 export PIP_DOWNLOAD_CACHE=$HOME/.pip-cache
+
+# AWS
+alias eb="python2.7 $REPOS/AWS-ElasticBeanstalk-CLI-2.1/eb/macosx/python2.7/eb"
