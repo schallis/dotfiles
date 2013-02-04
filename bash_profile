@@ -1,4 +1,3 @@
-echo "BASH PROFILE"
 # Terminal color codes
 export BOLD="\033[1m"
 export GRAY="\033[1;30m"
@@ -36,6 +35,10 @@ export BOOKS="$ORG/books"
 export HOWTO="$ORG/how-to"
 export DOC="$ORG/doc"
 
+usa() {
+    ssh -D 7654 test1
+}
+
 alias edw="(/Applications/Emacs.app/Contents/MacOS/Emacs --daemon &)"
 alias ec='emacsclient -t $* > /dev/null &'
 ecw() {
@@ -46,7 +49,7 @@ ecw() {
 em() { /Applications/Emacs.app/Contents/MacOS/Emacs $1 & }
 
 # Tab complete any previously used ssh servers
-complete -W "$(echo `cat ~/.ssh/known_hosts | cut -f 1 -d ' ' | sed -e s/,.*//g | uniq | grep -v "\["`;)" ssh scp
+#complete -W "$(echo `cat ~/.ssh/known_hosts | cut -f 1 -d ' ' | sed -e s/,.*//g | uniq | grep -v "\["`;)" ssh scp
 
 vimtris() { netris -k "hjl k" ; }
 
@@ -166,6 +169,7 @@ alias gensha1='TEMP=$PWD; cd ~/scripts; ./gensha1 $* ; cd $TEMP'
 alias genmd5='TEMP=$PWD; cd ~/scripts; ./genmd5 $* ; cd $TEMP'
 alias preview='open /Applications/Preview.app $*'
 alias linecount='grep -v ".svn" `find . -iname "*.py"` | wc -l'
+alias tailf='tail -f'
 
 export PATH="/Applications/NetBeans/NetBeans 6.9.1.app/Contents//Resources/NetBeans/java/ant/bin/ant":$PATH
 
@@ -199,8 +203,6 @@ function check_keys() {
         echo -en $RED
         echo "You should add your key to the keychain"
         echo -en $NO_COLOUR
-    else
-        echo "Keys all good!"
     fi
 }
 check_keys
