@@ -24,18 +24,20 @@ call vundle#rc()
 " let Vundle manage Vundle
 " required!
 Bundle 'gmarik/vundle'
-
 Bundle 'scrooloose/nerdtree'
+Bundle 'scrooloose/syntastic'
+Bundle 'tpope/vim-surround'
 Bundle 'flazz/vim-colorschemes'
 Bundle 'wincent/Command-T'
-Bundle 'tpope/vim-surround'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'tpope/vim-markdown'
 Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-rake'
+Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-endwise'
+Bundle 'tpope/vim-markdown'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'jiangmiao/auto-pairs'
-Bundle 'tpope/vim-endwise'
 Bundle 'matchit.zip'
 Bundle 'kana/vim-textobj-user'
 Bundle 'nelstrom/vim-textobj-rubyblock'
@@ -43,11 +45,26 @@ Bundle 'othree/html5.vim'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'leshill/vim-json'
 Bundle 'michaeljsmith/vim-indent-object'
+Bundle 'juvenn/mustache.vim'
+Bundle 'mileszs/ack.vim'
+Bundle 'duff/vim-scratch'
 if version >= 730
     Bundle 'myusuf3/numbers.vim'
     Bundle 'sontek/rope-vim'
 endif
 Bundle 'sjl/gundo.vim'
+
+" Command T
+let g:CommandTMinHeight=10
+let g:CommandTMaxHeight=10
+
+nnoremap <leader>a :Ack
+nnoremap <leader>q gqip
+nnoremap <leader>v V`]
+nnoremap <leader>w <C-w>v<C-w>l
+
+" Syntastic
+let g:syntastic_python_checker = 'pylint'
 
 " Use hidden buffers rather than closing them
 " set hidden
@@ -345,7 +362,6 @@ set listchars=tab:>.,trail:.,extends:#,nbsp:.
 
 " Toggle list visibility
 nmap <silent> <leader>s :set nolist!<CR>
-vmap <silent> <leader>c :s/^/#/<CR>
 
 " Emulate emacs fillprefix (requires external plugin)
 nmap <silent> <leader>fp :call SetQuotePrefixFromCursor()<CR>
